@@ -9,7 +9,7 @@ frappe.treeview_settings["Account"] = {
 		fieldtype:"Select",
 		options: erpnext.utils.get_tree_options("company"),
 		label: __("Company"),
-		default: erpnext.utils.get_tree_default("company")
+		default: frappe.defaults.get_user_default("Company") ? frappe.defaults.get_user_default("Company") : (frappe.defaults.get_default('Company') ? frappe.defaults.get_default('Company'): "")
 	}],
 	root_label: "Accounts",
 	get_tree_nodes: 'erpnext.accounts.utils.get_children',
